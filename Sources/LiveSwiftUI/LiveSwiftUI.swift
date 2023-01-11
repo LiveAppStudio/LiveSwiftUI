@@ -1,5 +1,4 @@
-import SwiftUI
-
+@_exported import SwiftUI
 
 public struct LiveSwiftUI {
     public private(set) var text = "Hello, World!"
@@ -8,7 +7,7 @@ public struct LiveSwiftUI {
         
     }
     
-    public func preview() -> some View {
+    public var preview: some View {
         Text("Hello, world!")
     }
 }
