@@ -36,6 +36,8 @@ public enum LSTargetSize: String, Codable {
          smallWidget, mediumWidget, largeWidget
 }
 
+
+
 let example = LSProject(title: "example project", author: "haren724", version: "0.1", size: .iphone14promax, content: [
     .text(content: "Hello, Haren!"),
     .text(content: "Hello, world!"),
