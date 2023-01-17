@@ -1,11 +1,26 @@
 import SwiftUI
 
-public struct LSProject: Codable {
+public struct LSProject: Codable, Transferable {
     var title: String
     var author: String
     var version: String
     var size: LSTargetSize
     var content: [LSElement]
+    
+    public init(title: String, author: String, version: String, size: LSTargetSize, content: [LSElement]) {
+        self.title = title
+        self.author = author
+        self.version = version
+        self.size = size
+        self.content = content
+    }
+    
+    public static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .json) { item in
+            guard let exported = try? JSONEncoder().encode(item) else { return .init() }
+            return exported
+        }
+    }
 }
 
 public enum LSElement: Codable, Hashable, Identifiable {
